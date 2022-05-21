@@ -1,0 +1,79 @@
+﻿@page "/"
+@using System.ComponentModel.DataAnnotations
+
+<PageTitle>My ToDo App</PageTitle>
+
+<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="12">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="ToDo" @bind-Value="model.Name" For="@(() => model.Name)" />
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Add</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>
+
+@if (todos.Any())
+{
+    <MudPaper Class="mt-5">
+        <MudList Clickable=true>
+            @foreach (var todo in todos)
+            {
+                <MudListItem Icon="@todo.Icon" OnClick="todo.SetComplete">
+                    @if (todo.IsComplete)
+                    {
+                        <span style="text-decoration:line-through">@todo.Name</span>
+                    }
+                    else
+                    {
+                        @todo.Name
+                    }
+                </MudListItem>
+            }
+        </MudList>
+    </MudPaper>
+}
+
+@code {
+    ToDo model = new ToDo();
+
+    List<ToDo> todos = new List<ToDo>();
+    bool success;
+
+    public class ToDo
+    {
+        [Required]
+        public string Name { get; set; } = string.Empty;
+
+        public string Icon
+        {
+            get
+            {
+                if (IsComplete) return Icons.TwoTone.CheckBox;
+                else return Icons.Filled.CheckBoxOutlineBlank;
+            }
+        }
+
+        public bool IsComplete { get; set; }
+
+        public void SetComplete()
+        {
+            IsComplete = !IsComplete;
+        }
+    }
+
+    private void OnValidSubmit(EditContext context)
+    {
+        todos.Add(model);
+        success = true;
+        model = new ToDo();
+        StateHasChanged();
+    }
+
+}
