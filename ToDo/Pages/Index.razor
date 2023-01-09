@@ -1,18 +1,20 @@
 ﻿@page "/"
-@using System.ComponentModel.DataAnnotations
+@using ToDo.Application.Models
 
 <PageTitle>My ToDo App</PageTitle>
 
+<h1 style="text-align:center">My ToDo's</h1>
+
 <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
-    <MudGrid>
+    <MudGrid Class="mt-2">
         <MudItem xs="12" sm="12">
-            <MudCard>
+            <MudCard Outlined="true">
                 <MudCardContent>
-                    <MudTextField Label="ToDo" @bind-Value="model.Name" For="@(() => model.Name)" />
+                    <MudTextField Label="ToDo" @bind-Value="model.Name" For="@(() => model.Name)" AutoFocus="true" />
                 </MudCardContent>
                 <MudCardActions>
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Add</MudButton>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Add ToDo</MudButton>
                 </MudCardActions>
             </MudCard>
         </MudItem>
@@ -21,7 +23,7 @@
 
 @if (todos.Any())
 {
-    <MudPaper Class="mt-5">
+    <MudPaper Class="mt-5" Outlined="true">
         <MudList Clickable=true>
             @foreach (var todo in todos)
             {
@@ -44,36 +46,12 @@
     ToDo model = new ToDo();
 
     List<ToDo> todos = new List<ToDo>();
-    bool success;
-
-    public class ToDo
-    {
-        [Required]
-        public string Name { get; set; } = string.Empty;
-
-        public string Icon
-        {
-            get
-            {
-                if (IsComplete) return Icons.TwoTone.CheckBox;
-                else return Icons.Filled.CheckBoxOutlineBlank;
-            }
-        }
-
-        public bool IsComplete { get; set; }
-
-        public void SetComplete()
-        {
-            IsComplete = !IsComplete;
-        }
-    }
 
     private void OnValidSubmit(EditContext context)
     {
-        todos.Add(model);
-        success = true;
+        if (!string.IsNullOrWhiteSpace(model.Name))
+            todos.Add(model);
         model = new ToDo();
         StateHasChanged();
     }
-
 }
