@@ -1,10 +1,11 @@
 ﻿using System;
 using MudBlazor;
 
-namespace ToDo.Application.Models;
+namespace ToDoApp.Application.Models;
 
 public class ToDo
 {
+    public Guid Id { get; set; } = Guid.NewGuid();
     public string Name { get; set; } = string.Empty;
 
     public string Icon
@@ -18,9 +19,4 @@ public class ToDo
     }
 
     public bool IsComplete { get; set; }
-
-    public void SetComplete()
-    {
-        IsComplete = !IsComplete;
-    }
 }

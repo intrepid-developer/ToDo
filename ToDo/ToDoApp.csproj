@@ -4,6 +4,7 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<AssemblyName>ToDo</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Mudblazor.Template' ">
 		<ExternalConsole>true</ExternalConsole>
@@ -12,13 +13,16 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.1" PrivateAssets="all" />
 		<PackageReference Include="MudBlazor" Version="6.1.7" />
+		<PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="Application\" />
 	  <None Remove="Application\Models\" />
+	  <None Remove="Application\Services\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Application\" />
 	  <Folder Include="Application\Models\" />
+	  <Folder Include="Application\Services\" />
 	</ItemGroup>
 </Project>

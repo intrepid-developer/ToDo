@@ -1,5 +1,6 @@
 ﻿@page "/"
-@using ToDo.Application.Models
+@using ToDoApp.Application.Models
+@inject ToDoApp.Application.Services.IToDoService _toDoService
 
 <PageTitle>My ToDo App</PageTitle>
 
@@ -21,13 +22,13 @@
     </MudGrid>
 </EditForm>
 
-@if (todos.Any())
+@if (todos != null && todos.Any())
 {
     <MudPaper Class="mt-5" Outlined="true">
         <MudList Clickable=true>
             @foreach (var todo in todos)
             {
-                <MudListItem Icon="@todo.Icon" OnClick="todo.SetComplete">
+                <MudListItem Icon="@todo.Icon" OnClick="() => SetComplete(todo)">
                     @if (todo.IsComplete)
                     {
                         <span style="text-decoration:line-through">@todo.Name</span>
@@ -45,13 +46,28 @@
 @code {
     ToDo model = new ToDo();
 
-    List<ToDo> todos = new List<ToDo>();
+    IList<ToDo>? todos;
 
-    private void OnValidSubmit(EditContext context)
+    protected override async Task OnInitializedAsync()
     {
+        todos = await _toDoService.GetToDosAsync();
+        await base.OnInitializedAsync();
+    }
+
+    private async Task OnValidSubmit(EditContext context)
+    {
+        ArgumentNullException.ThrowIfNull(todos);
+
         if (!string.IsNullOrWhiteSpace(model.Name))
-            todos.Add(model);
+            await _toDoService.AddToDoAsync(model);
+
         model = new ToDo();
         StateHasChanged();
+    }
+
+    private async Task SetComplete(ToDo todo)
+    {
+        todo.IsComplete = !todo.IsComplete;
+        await _toDoService.UpdateToDoAsync(todo);
     }
 }
