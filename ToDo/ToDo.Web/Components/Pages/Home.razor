@@ -1,0 +1,149 @@
+﻿@page "/"
+@inject ToDoApiClient Client;
+@inject ISnackbar Snackbar;
+
+<PageTitle>ToDo's</PageTitle>
+
+<MudForm>
+    <MudGrid Spacing="5">
+        <MudItem xs="12">
+            <MudText Typo="Typo.h4" Align="Align.Center">ToDo's</MudText>
+        </MudItem>
+        <MudItem xs="12" Class="d-flex align-center flex-grow-1 gap-4">
+            <MudTextField T="string"
+                          Label="New ToDo"
+                          @bind-Value="_toDoTitle"
+                          Variant="Variant.Outlined"/>
+
+            <MudButton Size="Size.Large"
+                       OnClick="AddToDo"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary">
+                Add
+            </MudButton>
+        </MudItem>
+        <MudItem xs="12">
+            <MudList T="TodoItem">
+                @foreach (var todo in ToDos)
+                {
+                    <MudListItem Disabled="todo.IsCompleted" Class="d-flex justify-space-around flex-grow-1 gap-4">
+                        <div>
+                            @if (_editId == todo.Id)
+                            {
+                                <MudTextField T="string"
+                                              @bind-Value="_editTitle"
+                                              Variant="Variant.Outlined"
+                                              Class="me-2"
+                                              Disabled="todo.IsCompleted"/>
+                            }
+                            else
+                            {
+                                <MudText Typo="Typo.body1" Class="me-2"
+                                         Style="@(todo.IsCompleted ? "text-decoration: line-through;" : "")">
+                                    @todo.Title
+                                </MudText>
+                            }
+                        </div>
+                        <div>
+                            @if (_editId == todo.Id)
+                            {
+                                <MudIconButton Icon="@Icons.Material.Filled.Check"
+                                               Color="Color.Success"
+                                               OnClick="@(() => SaveEdit(todo))"
+                                               Disabled="todo.IsCompleted"/>
+                                <MudIconButton Icon="@Icons.Material.Filled.Close"
+                                               Color="Color.Default"
+                                               OnClick="@CancelEdit"/>
+                            }
+                            else
+                            {
+                                <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                                               Color="Color.Primary"
+                                               OnClick="@(() => StartEdit(todo))"
+                                               Disabled="todo.IsCompleted"/>
+                                <MudIconButton Icon="@Icons.Material.Filled.CheckCircle"
+                                               Color="Color.Success"
+                                               OnClick="@(() => MarkComplete(todo))"
+                                               Disabled="todo.IsCompleted"/>
+                                <MudIconButton Icon="@Icons.Material.Filled.Delete"
+                                               Color="Color.Error"
+                                               OnClick="@(() => DeleteTodo(todo))"/>
+                            }
+                        </div>
+                    </MudListItem>
+                }
+            </MudList>
+        </MudItem>
+    </MudGrid>
+</MudForm>
+
+@code{
+    private string _toDoTitle = string.Empty;
+    private List<TodoItem> ToDos { get; set; } = [];
+    private int? _editId = null;
+    private string _editTitle = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadToDo();
+    }
+
+    private async Task LoadToDo()
+    {
+        ToDos = [..await Client.GetTodoItemsAsync()];
+    }
+
+    private async Task AddToDo()
+    {
+        var toDo = new TodoItem
+        {
+            Title = _toDoTitle
+        };
+        await Client.CreateTodoItemAsync(toDo);
+        await LoadToDo();
+        _toDoTitle = string.Empty;
+        Snackbar.Add("Added", Severity.Success);
+        StateHasChanged();
+    }
+
+    private void StartEdit(TodoItem todo)
+    {
+        _editId = todo.Id;
+        _editTitle = todo.Title;
+    }
+
+    private async Task SaveEdit(TodoItem todo)
+    {
+        if (!string.IsNullOrWhiteSpace(_editTitle))
+        {
+            var updated = todo with { Title = _editTitle };
+            await Client.UpdateTodoItemAsync(todo.Id, updated);
+            Snackbar.Add("Updated", Severity.Success);
+            await LoadToDo();
+        }
+
+        _editId = null;
+        _editTitle = string.Empty;
+    }
+
+    private void CancelEdit()
+    {
+        _editId = null;
+        _editTitle = string.Empty;
+    }
+
+    private async Task MarkComplete(TodoItem todo)
+    {
+        var updated = todo with { IsCompleted = true };
+        await Client.UpdateTodoItemAsync(todo.Id, updated);
+        Snackbar.Add("Marked as complete", Severity.Info);
+        await LoadToDo();
+    }
+
+    private async Task DeleteTodo(TodoItem todo)
+    {
+        await Client.DeleteTodoItemAsync(todo.Id);
+        Snackbar.Add("Deleted", Severity.Warning);
+        await LoadToDo();
+    }
+}

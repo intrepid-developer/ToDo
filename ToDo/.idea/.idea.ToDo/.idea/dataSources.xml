@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="todo-db" uuid="9b5ab335-b983-444a-ac95-896f3a6b2a99">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,62357;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="902c13a5-8fa5-4a01-8c22-6bbeedd0fa9d">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,62587;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="5d422860-e495-484f-9eef-928ad682b20c">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,62829;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="6891e2ac-b5eb-436c-93ac-0db8d331321a">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,63183;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="c985b25d-a167-4f8d-b857-b836eeaa6118">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,63994;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="a5fa6736-518b-48ed-aef9-54afbfab2971">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,64325;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="8f517480-ffc4-4a14-80ef-1f876b5765b4">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,64526;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="701e3530-be8b-4857-9383-a8f7ebf82b4a">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,65421;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="cfde8fd6-8291-453a-a9f9-33d5312ef8aa">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,49307;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="c9415ab6-47e0-4959-9d20-32ef8c09778d">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,49525;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="003f80e4-d470-4250-b932-001268b18cce">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,49736;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="5c98fcd1-d9b7-4229-a2b3-76934a60b083">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,49967;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="de3a88c9-8693-4d71-9359-62ffe6910254">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,51145;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="1aa25695-8bce-4356-9b86-c98a07baf422">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,51498;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="d29e4134-eff2-4a3b-9c6e-4d7a81b3d7ef">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,51755;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="d59275a6-06dd-4a5c-9f11-721bba9c415f">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,52017;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="1d13142d-f421-4443-b978-29ca13b23277">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,52275;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="todo-db" uuid="9be11551-7c2d-4af2-9b47-fdcca4b04da1">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,54729;User ID=sa;Password=7~5cA8eM3g.Ay)D1g-K1kH;TrustServerCertificate=true;Initial Catalog=todo-db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
