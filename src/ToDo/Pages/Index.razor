@@ -50,8 +50,13 @@
 
     protected override async Task OnInitializedAsync()
     {
-        todos = await _toDoService.GetToDosAsync();
+        await LoadToDosAsync();
         await base.OnInitializedAsync();
+    }
+
+    private async Task LoadToDosAsync()
+    {
+        todos = await _toDoService.GetToDosAsync();
     }
 
     private async Task OnValidSubmit(EditContext context)
@@ -59,7 +64,10 @@
         ArgumentNullException.ThrowIfNull(todos);
 
         if (!string.IsNullOrWhiteSpace(model.Name))
+        {
             await _toDoService.AddToDoAsync(model);
+            await LoadToDosAsync();
+        }
 
         model = new ToDo();
         StateHasChanged();
