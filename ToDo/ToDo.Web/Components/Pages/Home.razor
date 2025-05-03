@@ -6,9 +6,6 @@
 
 <MudForm>
     <MudGrid Spacing="5">
-        <MudItem xs="12">
-            <MudText Typo="Typo.h4" Align="Align.Center">ToDo's</MudText>
-        </MudItem>
         <MudItem xs="12" Class="d-flex align-center flex-grow-1 gap-4">
             <MudTextField T="string"
                           Label="New ToDo"
@@ -23,11 +20,13 @@
             </MudButton>
         </MudItem>
         <MudItem xs="12">
-            <MudList T="TodoItem">
-                @foreach (var todo in ToDos)
-                {
-                    <MudListItem Disabled="todo.IsCompleted" Class="d-flex justify-space-around flex-grow-1 gap-4">
-                        <div>
+            @foreach (var todo in ToDos)
+            {
+                <MudPaper Class="pa-2 mb-2"
+                          Outlined="true"
+                          Style="@(todo.IsCompleted ? "background-color: #f5f5f5;" : "")">
+                    <MudGrid>
+                        <MudItem xs="12" sm="12" md="10">
                             @if (_editId == todo.Id)
                             {
                                 <MudTextField T="string"
@@ -38,13 +37,14 @@
                             }
                             else
                             {
-                                <MudText Typo="Typo.body1" Class="me-2"
+                                <MudText Typo="Typo.body1" Class="ma-4"
                                          Style="@(todo.IsCompleted ? "text-decoration: line-through;" : "")">
                                     @todo.Title
                                 </MudText>
                             }
-                        </div>
-                        <div>
+                        </MudItem>
+
+                        <MudItem xs="12" sm="12" md="2" Class="d-flex align-center align-content-center flex-grow-1">
                             @if (_editId == todo.Id)
                             {
                                 <MudIconButton Icon="@Icons.Material.Filled.Check"
@@ -69,10 +69,10 @@
                                                Color="Color.Error"
                                                OnClick="@(() => DeleteTodo(todo))"/>
                             }
-                        </div>
-                    </MudListItem>
-                }
-            </MudList>
+                        </MudItem>
+                    </MudGrid>
+                </MudPaper>
+            }
         </MudItem>
     </MudGrid>
 </MudForm>
@@ -146,4 +146,5 @@
         Snackbar.Add("Deleted", Severity.Warning);
         await LoadToDo();
     }
+
 }

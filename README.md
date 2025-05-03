@@ -2,6 +2,9 @@
 
 This repository is a tutorial project for my blogging site. It will eventually become one of my first YouTube series on getting started with C# coding using Blazor with Aspire.
 
+What we'll be building:
+![App](.github/images/App.png)
+
 ## Prerequisites
 
 - [.NET 9 SDK (latest)](https://dotnet.microsoft.com/download/dotnet/9.0)
